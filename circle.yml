@@ -4,4 +4,4 @@ machine:
 
 test:
   override:
-    - cd ./bin/behat --tags=smoke
+    - ./bin/behat --tags=smoke
