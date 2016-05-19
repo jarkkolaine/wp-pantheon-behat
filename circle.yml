@@ -3,5 +3,7 @@ machine:
     version: 5.5.11
 
 test:
+  pre:
+    - mv behat.local.yml.sample behat.local.yml
   override:
     - ./bin/behat --tags=smoke
