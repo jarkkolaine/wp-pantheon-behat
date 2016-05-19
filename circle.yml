@@ -5,10 +5,6 @@ machine:
 test:
   pre:
     - mv behat.local.yml.sample behat.local.yml
-    - mkdir results
   override:
-    - ./bin/behat --format junit --out results --tags=smoke
-  post:
-    - touch results/keep
-    - cp results/* $CIRCLE_ARTIFACTS/
-    - rm $CIRCLE_ARTIFACTS/keep
+    - mkdir $CIRCLE_TEST_REPORTS/behat
+    - ./bin/behat --format junit --out $CIRCLE_TEST_REPORTS/behat --tags=smoke
